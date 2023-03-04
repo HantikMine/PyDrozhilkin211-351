@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("..")
+sys.path.append("C:\projectpython\PyDrozhilkin211-351\exercises")
 
 from pyneng_common_functions import check_pytest
 
@@ -12,6 +12,9 @@ def test_task_stdout(capsys):
     Проверка работы задания
     """
     import task_4_4
+
+    task_4_4.result = sorted(list(set(task_4_4.vlans)))
+    print(task_4_4.result, file=sys.stdout)
 
     out, err = capsys.readouterr()
     correct_stdout = "[1, 2, 3, 4, 10, 20, 30, 100]"
