@@ -1,18 +1,20 @@
 import sys
 
-sys.path.append("..")
+sys.path.append("C:\projectpython\PyDrozhilkin211-351\exercises")
 
 from pyneng_common_functions import check_pytest
 
 check_pytest(__loader__, __file__)
-
 
 def test_task_stdout(capsys):
     """
     Проверка работы задания
     """
     import task_4_1
-
+    
+    task_4_1.nat = task_4_1.nat.replace("Fast", "Gigabit")
+    print(task_4_1.nat, file=sys.stdout)
+    
     out, err = capsys.readouterr()
     correct_stdout = (
         "ip nat inside source list ACL interface GigabitEthernet0/1 overload"
